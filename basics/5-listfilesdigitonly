@@ -1,0 +1,2 @@
+#!/bin/bash
+cls -l /etc /bin 
