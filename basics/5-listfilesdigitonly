@@ -1,2 +1,2 @@
 #!/bin/bash
-cls -l /etc /bin 
+ls -a -l
