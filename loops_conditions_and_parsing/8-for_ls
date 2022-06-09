@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Prints current directory files from the first dash
-L=’’$(ls)’’
-for x in $L
+list=$(ls -t)
+for i in $list; 
 do
-echo $x | cut -d “-”
+echo "$i" | cut -d '-' -f2
 done
