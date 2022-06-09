@@ -2,7 +2,7 @@
 # Prints from 1 to 20 with case conditions
 x=1
 y=20
-while [ $x -ge $y ]
+while [ $x -le $y ]
 do
 echo $x
 case $x in
