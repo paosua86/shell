@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Prints 12 hours with its respective minutes
+x=0
+y=1
+while [ $x -le 12 ]
+do 
+echo “Hour: $x”
+while [ $y -le 59 ]
+do
+echo $y
+y=$(( y + 1))
+done
+x=$(( x + 1))
+done
