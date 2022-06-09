@@ -6,5 +6,6 @@ do
 echo "Best School"
 if [ $x -eq 9 ]
 echo ‘Hi’
+fi
 x=$(( x + 1 ));
 done
