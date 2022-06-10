@@ -1,29 +1,19 @@
 #!/usr/bin/env bash
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/wait.h>
- 
-/**
-* main - zombies
-*
-* Description: make five zombies
-* Return: 0 for success
-*/
-int main(void)
-{
-int i;
-pid_t pidme;
-i = 0;
-while (i < 5)
-{
-pidme = fork();
-if (pidme)
-printf("Zombie process created, PID: %i\n", pidme);
+# start, stop, restart process script
+if [ "$1" == "start" ]; then
+./manage_my_process &
+echo "$!" > /var/run/my_process.pid
+echo "manage_my_process started"
+elif [ "$1" == "stop" ]; then
+kill "$(cat /var/run/my_process.pid)"
+rm -f /var/run/my_process.pid
+echo "manage_my_process stopped"
+elif [ "$1" == "restart" ]; then
+kill "$(cat /var/run/my_process.pid)"
+rm -f /var/run/my_process.pid
+./manage_my_process &
+echo "$!" > /var/run/my_process.pid
+echo "manage_my_process restarted"
 else
-exit(0);
-i++;
-}
-sleep(100);
-return (0);
-}
+echo "Usage: manage_my_process {start|stop|restart}"
+fi
