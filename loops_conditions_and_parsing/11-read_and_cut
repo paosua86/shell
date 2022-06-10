@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# read_and_cut
+while read folder; 
+do
+    echo "$folder" | cut -d ':' -f1,3,6
+done < "/etc/passwd"
